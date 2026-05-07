@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brawl Stars — Complete Draft Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c14;
+    --surface: #111827;
+    --card: #161e2e;
+    --border: #1e293b;
+    --accent: #f59e0b;
+    --accent2: #ef4444;
+    --accent3: #22d3ee;
+    --accent4: #a78bfa;
+    --accent5: #4ade80;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --glow: rgba(245,158,11,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Exo 2', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 40px 50px;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0c14 0%, #111827 50%, #0f172a 100%);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,158,11,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 10% 50%, rgba(34,211,238,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 90% 50%, rgba(167,139,250,0.06) 0%, transparent 60%);
+  }
+
+  .header-tag {
+    display: inline-block;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 14px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1;
+    position: relative;
+    text-transform: uppercase;
+  }
+
+  h1 span.gold { color: var(--accent); }
+  h1 span.cyan { color: var(--accent3); }
+
+  .header-sub {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,12,20,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar { display: none; }
+
+  nav a {
+    display: block;
+    padding: 14px 18px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* MAIN LAYOUT */
+  main { max-width: 1200px; margin: 0 auto; padding: 50px 30px; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 70px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .section-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent);
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* CLASS CARDS */
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .class-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .class-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  .class-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .class-card.thrower::before { background: linear-gradient(to right, #f97316, #fb923c); }
+  .class-card.spacemaker::before { background: linear-gradient(to right, #ef4444, #f87171); }
+  .class-card.antitank::before { background: linear-gradient(to right, #f59e0b, #fbbf24); }
+  .class-card.control::before { background: linear-gradient(to right, #22d3ee, #67e8f9); }
+  .class-card.sniper::before { background: linear-gradient(to right, #a78bfa, #c4b5fd); }
+  .class-card.tank::before { background: linear-gradient(to right, #4ade80, #86efac); }
+  .class-card.support::before { background: linear-gradient(to right, #ec4899, #f9a8d4); }
+
+  .card-head {
+    padding: 18px 20px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-icon {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .thrower .card-icon { background: rgba(249,115,22,0.15); }
+  .spacemaker .card-icon { background: rgba(239,68,68,0.15); }
+  .antitank .card-icon { background: rgba(245,158,11,0.15); }
+  .control .card-icon { background: rgba(34,211,238,0.15); }
+  .sniper .card-icon { background: rgba(167,139,250,0.15); }
+  .tank .card-icon { background: rgba(74,222,128,0.15); }
+  .support .card-icon { background: rgba(236,72,153,0.15); }
+
+  .card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card-badge {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .badge-critical { background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+  .badge-key { background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+  .badge-passive { background: rgba(34,211,238,0.2); color: #67e8f9; border: 1px solid rgba(34,211,238,0.3); }
+
+  .card-body { padding: 18px 20px; }
+
+  .card-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card-body ul li {
+    font-size: 13.5px;
+    color: #94a3b8;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .card-body ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .card-body ul li strong { color: var(--text); }
+
+  .brawler-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  .thrower .tag { background: rgba(249,115,22,0.12); color: #fb923c; border: 1px solid rgba(249,115,22,0.2); }
+  .spacemaker .tag { background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+  .antitank .tag { background: rgba(245,158,11,0.12); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+  .control .tag { background: rgba(34,211,238,0.12); color: #67e8f9; border: 1px solid rgba(34,211,238,0.2); }
+  .sniper .tag { background: rgba(167,139,250,0.12); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.2); }
+  .tank .tag { background: rgba(74,222,128,0.12); color: #86efac; border: 1px solid rgba(74,222,128,0.2); }
+  .support .tag { background: rgba(236,72,153,0.12); color: #f9a8d4; border: 1px solid rgba(236,72,153,0.2); }
+
+  /* META TABLE */
+  .meta-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  thead tr {
+    background: var(--surface);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:hover { background: rgba(255,255,255,0.02); }
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody td {
+    padding: 13px 18px;
+    color: #94a3b8;
+    vertical-align: middle;
+  }
+
+  tbody td:first-child {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  /* MODE CARDS */
+  .mode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+  }
+
+  .mode-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .mode-head {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mode-emoji { font-size: 18px; }
+
+  .mode-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .mode-type {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .type-aggro { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+  .type-passive { background: rgba(34,211,238,0.15); color: #67e8f9; border: 1px solid rgba(34,211,238,0.25); }
+
+  .mode-body { padding: 16px 18px; }
+
+  .pick-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: flex-start;
+  }
+
+  .pick-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-top: 2px;
+    min-width: 58px;
+  }
+
+  .pick-text { font-size: 12.5px; color: #94a3b8; }
+
+  /* BAN SECTION */
+  .ban-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+
+  .ban-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .ban-head {
+    padding: 16px 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ban-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .ban-badge {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .b-first { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+  .b-second { background: rgba(167,139,250,0.15); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.25); }
+
+  .ban-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  .ban-rule {
+    padding: 12px 14px;
+    border-radius: 3px;
+    border-left: 3px solid;
+  }
+
+  .ban-rule.aggro { background: rgba(239,68,68,0.06); border-color: #ef4444; }
+  .ban-rule.passive { background: rgba(34,211,238,0.06); border-color: #22d3ee; }
+  .ban-rule.note { background: rgba(245,158,11,0.06); border-color: #f59e0b; }
+
+  .ban-rule-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: var(--muted);
+  }
+
+  .ban-rule p { font-size: 13px; color: #94a3b8; }
+  .ban-rule p strong { color: var(--text); }
+
+  /* QUIZ TABLE */
+  .quiz-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .quiz-table-wrap table thead tr { border-bottom-color: var(--accent3); }
+
+  .correct-cell {
+    color: #4ade80 !important;
+    font-weight: 600;
+  }
+
+  /* KEY RULES */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .rule-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+
+  .rule-item:hover { border-color: var(--accent); }
+
+  .rule-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.4;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .rule-text {
+    font-size: 13.5px;
+    color: #94a3b8;
+    padding-top: 4px;
+  }
+
+  .rule-text strong { color: var(--text); display: block; margin-bottom: 3px; font-size: 14px; }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(245,158,11,0.07);
+    border: 1px solid rgba(245,158,11,0.25);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-size: 13.5px;
+    color: #94a3b8;
+  }
+
+  .callout strong { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .class-card:nth-child(1) { animation-delay: 0.05s; }
+  .class-card:nth-child(2) { animation-delay: 0.1s; }
+  .class-card:nth-child(3) { animation-delay: 0.15s; }
+  .class-card:nth-child(4) { animation-delay: 0.2s; }
+  .class-card:nth-child(5) { animation-delay: 0.25s; }
+  .class-card:nth-child(6) { animation-delay: 0.3s; }
+  .class-card:nth-child(7) { animation-delay: 0.35s; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 0 0 50px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">Complete Guide — Parts 1 & 2</div>
+  <h1><span class="gold">Brawl Stars</span><br><span class="cyan">Draft Guide</span></h1>
+  <p class="header-sub">by Bobby · Pro Player · Everything you need to draft like a pro</p>
+</header>
+
+<nav>
+  <a href="#classes">Classes</a>
+  <a href="#meta">Meta</a>
+  <a href="#modes">Modes</a>
+  <a href="#bans">Bans</a>
+  <a href="#teammates">Teammates</a>
+  <a href="#rules">Key Rules</a>
+  <a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+  <!-- CLASSES -->
+  <section class="section" id="classes">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">The 7 Brawler Classes</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="class-grid">
+
+      <div class="class-card antitank fade-in">
+        <div class="card-head">
+          <div class="card-icon">⚔️</div>
+          <div>
+            <div class="card-title">Anti-Tank</div>
+          </div>
+          <span class="card-badge badge-key">First Pick</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Definition:</strong> High burst damage (~1 sec) and/or a stun</li>
+            <li>Almost always the <strong>first pick</strong> in aggressive modes</li>
+            <li>Never draft without one in Brawl Ball, Hot Zone, Gem Grab, Heist</li>
+            <li>Most well-rounded class — little to no weakness</li>
+          </ul>
+          <div class="brawler-tags">
+            <span class="tag">Otis</span>
+            <span class="tag">Crow</span>
+            <span class="tag">Colette</span>
+            <span class="tag">Chester</span>
+            <span class="tag">M</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="class-card spacemaker fade-in">
+        <div class="card-head">
+          <div class="card-icon">🔴</div>
+          <div>
+            <div class="card-title">Space Makers</div>
+          </div>
+          <span class="card-badge badge-critical">Most Important</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Definition:</strong> Dash/teleport that closes distance instantly</li>
+            <li>Takes <strong>2 opponents</strong> to deal with them most of the time</li>
+            <li>Forces opponents away from snipers/throwers</li>
+            <li>Best in <strong>slots 4-5</strong>, not early draft</li>
+            <li>The gap between casuals and pros</li>
+          </ul>
+          <div class="brawler-tags">
+            <span class="tag">Kaz</span>
+            <span class="tag">Shade</span>
+            <span class="tag">Ally</span>
+            <span class="tag">Mortis</span>
+            <span class="tag">Edgar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="class-card thrower fade-in">
+        <div class="card-head">
+          <div class="card-icon">🌀</div>
+          <div>
+            <div class="card-title">Throwers</div>
+          </div>
+          <span class="card-badge badge-passive">Last Pick Only</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Definition:</strong> Shoot over walls</li>
+            <li>Binary: either completely useless or totally unbeatable</li>
+            <li>Almost exclusively <strong>last pick</strong> — never pick early</li>
+            <li>Special: <strong>Willow</strong> (anti-tank properties, good 1st/2-3), <strong>Barry</strong> (healer in Heist/Hot Zone)</li>
+          </ul>
+          <div class="brawler-tags">
+            <span class="tag">Sirius</span>
+            <span class="tag">Larry</span>
+            <span class="tag">Guju</span>
+            <span class="tag">Barry</span>
+            <span class="tag">Ziggy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="class-card control fade-in">
+        <div class="card-head">
+          <div class="card-icon">🔵</div>
+          <div>
+            <div class="card-title">Control</div>
+          </div>
+          <span class="card-badge badge-passive">Slots 2-3</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Definition:</strong> Good at holding map areas, never both high DPS + stun</li>
+            <li>Counter other mid-range brawlers, especially anti-tanks</li>
+            <li><strong>Never first pick</strong> — easy to get run down</li>
+            <li>Fallen off significantly due to space makers dominating</li>
+          </ul>
+          <div class="brawler-tags">
+            <span class="tag">Lumi</span>
+            <span class="tag">Niga</span>
+            <span class="tag">Gene</span>
+            <span class="tag">Stew</span>
+            <span class="tag">Leon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="class-card sniper fade-in">
+        <div class="card-head">
+          <div class="card-icon">🎯</div>
+          <div>
+            <div class="card-title">Snipers</div>
+          </div>
+          <span class="card-badge badge-passive">Bounty/KO</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Definition:</strong> Long range, single fire shots</li>
+            <li>Mostly for <strong>Bounty and Knockout</strong> only</li>
+            <li>Pure snipers (Piper, Mandy) rarely viable at high level anymore</li>
+            <li>Exceptions: Belle, Byron, Gus, Angelo, Pierce, RT can be played more broadly</li>
+          </ul>
+          <div class="brawler-tags">
+            <span class="tag">Pierce</span>
+            <span class="tag">Angelo</span>
+            <span class="tag">Belle</span>
+            <span class="tag">Byron</span>
+            <span class="tag">Gus</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="class-card tank fade-in">
+        <div class="card-head">
+          <div class="card-icon">🛡️</div>
+          <div>
+            <div class="card-title">Tanks</div>
+          </div>
+          <span class="card-badge badge-passive">vs Space Makers</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Definition:</strong> Massive HP, no mobility</li>
+            <li>Counter Space Makers by outlasting them in 1v1s</li>
+            <li>Pick when opponent has Space Makers but no anti-tank</li>
+            <li>Still weak to: throwers, snipers, anti-tanks</li>
+            <li>Only class with <strong>passive supers</strong></li>
+          </ul>
+          <div class="brawler-tags">
+            <span class="tag">Bull</span>
+            <span class="tag">Frank</span>
+            <span class="tag">BB</span>
+            <span class="tag">Fang</span>
+            <span class="tag">Rosa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="class-card support fade-in">
+        <div class="card-head">
+          <div class="card-icon">💚</div>
+          <div>
+            <div class="card-title">Support</div>
+          </div>
+          <span class="card-badge badge-passive">Utility</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Definition:</strong> Heals, speed, utility — enables teammates</li>
+            <li>Extremely strong when <strong>uncountered</strong></li>
+            <li>Weakness: low damage — always pair with damage dealers</li>
+            <li>Complete the comp after anti-tank is secured</li>
+          </ul>
+          <div class="brawler-tags">
+            <span class="tag">Max</span>
+            <span class="tag">Poco</span>
+            <span class="tag">Barry</span>
+            <span class="tag">Kit</span>
+            <span class="tag">Glowy</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- META TABLE -->
+  <section class="section" id="meta">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Current Meta — Top 5 Per Class</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="meta-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Class</th>
+            <th>Top 5 Brawlers</th>
+            <th>Best Pick Slot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="dot" style="background:#f59e0b"></span>Anti-Tank</td>
+            <td>Otis, Crow, Colette, Chester, M</td>
+            <td>1st Pick</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#22d3ee"></span>Control</td>
+            <td>Lumi, Niga, Gene, Stew, Leon</td>
+            <td>Slots 2-3</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#f97316"></span>Thrower</td>
+            <td>Sirius, Larry, Guju, Barry, Ziggy</td>
+            <td>Last Pick</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#a78bfa"></span>Sniper</td>
+            <td>Pierce, Angelo, Belle, Byron, Gus</td>
+            <td>Last Pick / Slots 2-3 (B/KO)</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#ef4444"></span>Space Maker</td>
+            <td>Kaz, Shade, Ally, Mortis, Edgar</td>
+            <td>Slots 4-5</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#4ade80"></span>Tank</td>
+            <td>Bull, Frank, BB, Fang, Rosa</td>
+            <td>Slots 4-5 (vs Space Makers)</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#ec4899"></span>Support</td>
+            <td>Max, Poco, Barry, Kit, Glowy</td>
+            <td>Last / Slot 5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      ⚠️ <strong>Meta changes constantly.</strong> New brawlers are intentionally overtuned on release. Always follow pro tier lists after every balance update — what was best 3 months ago may be useless today.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MODES -->
+  <section class="section" id="modes">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Draft Strategy by Mode</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="mode-grid">
+
+      <div class="mode-card">
+        <div class="mode-head">
+          <span class="mode-emoji">⚽</span>
+          <span class="mode-name">Brawl Ball</span>
+          <span class="mode-type type-aggro">Aggro</span>
+        </div>
+        <div class="mode-body">
+          <div class="pick-row"><span class="pick-label">1st</span><span class="pick-text">Best anti-tank (Crow, Otis, Chester, Clancy)</span></div>
+          <div class="pick-row"><span class="pick-label">2-3</span><span class="pick-text">Next best anti-tank (Nidita, Mo, M)</span></div>
+          <div class="pick-row"><span class="pick-label">4-5</span><span class="pick-text">Space maker (Kenji, Bull, BB) or tank if they have space makers</span></div>
+          <div class="pick-row"><span class="pick-label">Last</span><span class="pick-text">Counter their weakness — Willow/thrower if no space makers</span></div>
+        </div>
+      </div>
+
+      <div class="mode-card">
+        <div class="mode-head">
+          <span class="mode-emoji">🔥</span>
+          <span class="mode-name">Hot Zone</span>
+          <span class="mode-type type-aggro">Aggro</span>
+        </div>
+        <div class="mode-body">
+          <div class="pick-row"><span class="pick-label">1st</span><span class="pick-text">Best anti-tank (Lou, Fins, Crow, Clancy, Otis)</span></div>
+          <div class="pick-row"><span class="pick-label">2-3</span><span class="pick-text">Next best anti-tank + aggressive pick</span></div>
+          <div class="pick-row"><span class="pick-label">4-5</span><span class="pick-text">Space maker preferred — Space Maker + Anti-Tank wins ~100%</span></div>
+          <div class="pick-row"><span class="pick-label">Last</span><span class="pick-text">Counter their weakness</span></div>
+        </div>
+      </div>
+
+      <div class="mode-card">
+        <div class="mode-head">
+          <span class="mode-emoji">💎</span>
+          <span class="mode-name">Gem Grab</span>
+          <span class="mode-type type-aggro">Aggro</span>
+        </div>
+        <div class="mode-body">
+          <div class="pick-row"><span class="pick-label">1st</span><span class="pick-text">Strongest anti-tank available</span></div>
+          <div class="pick-row"><span class="pick-label">2-3</span><span class="pick-text">Anti-tank + good gem stealer (Chester, Mo, Lily, Shade)</span></div>
+          <div class="pick-row"><span class="pick-label">4-5</span><span class="pick-text">Counter weakness + good for gems. Never 3 of the same class</span></div>
+          <div class="pick-row"><span class="pick-label">Last</span><span class="pick-text">Counter + gem value</span></div>
+        </div>
+      </div>
+
+      <div class="mode-card">
+        <div class="mode-head">
+          <span class="mode-emoji">🏦</span>
+          <span class="mode-name">Heist</span>
+          <span class="mode-type type-aggro">Aggro</span>
+        </div>
+        <div class="mode-body">
+          <div class="pick-row"><span class="pick-label">1st</span><span class="pick-text">Anti-tank with safe damage (Crow, Colt, Mo)</span></div>
+          <div class="pick-row"><span class="pick-label">2-3</span><span class="pick-text">Anti-tank + damage (Melody, Kaz, Chuck)</span></div>
+          <div class="pick-row"><span class="pick-label">4-5</span><span class="pick-text">Max damage possible or control if damage is covered</span></div>
+          <div class="pick-row"><span class="pick-label">Last</span><span class="pick-text">Counter vs Chuck → don't stop it, outdamage it on their safe</span></div>
+        </div>
+      </div>
+
+      <div class="mode-card">
+        <div class="mode-head">
+          <span class="mode-emoji">🏆</span>
+          <span class="mode-name">Bounty</span>
+          <span class="mode-type type-passive">Passive</span>
+        </div>
+        <div class="mode-body">
+          <div class="pick-row"><span class="pick-label">1st</span><span class="pick-text">Solid brawler — Pierce, Gene, Leon, Glowy</span></div>
+          <div class="pick-row"><span class="pick-label">2-3</span><span class="pick-text">Belle, Gus, Byron or RT, Bo, Jay</span></div>
+          <div class="pick-row"><span class="pick-label">4-5</span><span class="pick-text">Counter weakness or blue star brawler (Mina, Mortis, Kaz)</span></div>
+          <div class="pick-row"><span class="pick-label">Last</span><span class="pick-text">Thrower/sniper if no counter; Mortis/Melody vs 2 snipers</span></div>
+        </div>
+      </div>
+
+      <div class="mode-card">
+        <div class="mode-head">
+          <span class="mode-emoji">💀</span>
+          <span class="mode-name">Knockout</span>
+          <span class="mode-type type-passive">Passive</span>
+        </div>
+        <div class="mode-body">
+          <div class="pick-row"><span class="pick-label">1st</span><span class="pick-text">Solid — Gene, Leon, Pierce, Angelo, RT</span></div>
+          <div class="pick-row"><span class="pick-label">2-3</span><span class="pick-text">Good hyper brawler — Leon, Mandy, Bo, RT, Ally, Meeple</span></div>
+          <div class="pick-row"><span class="pick-label">4-5</span><span class="pick-text">Another solid hyper brawler with good matchups</span></div>
+          <div class="pick-row"><span class="pick-label">Last</span><span class="pick-text">Daryl if no tank counter; thrower if uncountered; Melody vs snipers</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BANS -->
+  <section class="section" id="bans">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">How Bans Work</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="ban-grid">
+
+      <div class="ban-card">
+        <div class="ban-head">
+          <span>🥈</span>
+          <span class="ban-title">You Have Second Pick</span>
+          <span class="ban-badge b-second">Opponent goes first</span>
+        </div>
+        <div class="ban-body">
+          <div class="ban-rule aggro">
+            <div class="ban-rule-title">Aggressive Modes</div>
+            <p>Ban the <strong>3 best anti-tanks</strong> on the map — Crow, Colette, Otis, Chester. No overthinking.</p>
+          </div>
+          <div class="ban-rule passive">
+            <div class="ban-rule-title">Passive Modes (Bounty/KO)</div>
+            <p>Ban <strong>Niga, Gene, Pierce</strong> — the best first picks for those modes.</p>
+          </div>
+          <div class="ban-rule note">
+            <div class="ban-rule-title">Overtuned Brawlers</div>
+            <p>New or recently buffed brawlers like <strong>Niga and Sirius</strong> are also priority bans even outside their class.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ban-card">
+        <div class="ban-head">
+          <span>🥇</span>
+          <span class="ban-title">You Have First Pick</span>
+          <span class="ban-badge b-first">You go first</span>
+        </div>
+        <div class="ban-body">
+          <div class="ban-rule note">
+            <div class="ban-rule-title">⚠️ Never Ban the Best Brawlers</div>
+            <p>When your team has first pick, <strong>never ban Crow, Colette, etc.</strong> — you want to pick those yourself!</p>
+          </div>
+          <div class="ban-rule aggro">
+            <div class="ban-rule-title">Option 1 — Ban a Strong 2-3</div>
+            <p>Stops opponent building a solid comp. Aggressive: <strong>Stew, Lumi, Ruffs, Mortis, Edgar.</strong> Passive: <strong>Belle or Byron.</strong></p>
+          </div>
+          <div class="ban-rule passive">
+            <div class="ban-rule-title">Option 2 — Ban a Strong Last Pick</div>
+            <p>Stops a free counter at the end. Examples: <strong>Rico</strong> on Hard Rock Mine, <strong>Shade</strong> on walled maps, <strong>throwers</strong> in Bounty/KO.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="meta-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Map</th>
+              <th>Scenario</th>
+              <th>Correct Bans</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Double Swoosh</td><td>Opponent first pick</td><td>Crow, Colette, Otis, Chester, Niga or Sirius</td></tr>
+            <tr><td>Bell's Rock (Bounty)</td><td>Opponent first pick</td><td>Pierce, Gene, Niga</td></tr>
+            <tr><td>Pinhole Punt</td><td>You have first pick</td><td>Stew, Lumi or Leon</td></tr>
+            <tr><td>Hideout (Bounty)</td><td>You have first pick</td><td>Belle or Byron</td></tr>
+            <tr><td>Open Business (Hot Zone)</td><td>Opponent first pick</td><td>Crow, Colette, Niga, Fins or Sirius</td></tr>
+            <tr><td>Heist map</td><td>Opponent first pick</td><td>Crow, Colette, Colt or Pierce</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TEAMMATES -->
+  <section class="section" id="teammates">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Dealing With Bad Teammates</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="ban-grid">
+      <div class="ban-card">
+        <div class="ban-head"><span>🧠</span><span class="ban-title">The Bigger Picture</span></div>
+        <div class="ban-body">
+          <div class="ban-rule note">
+            <div class="ban-rule-title">Most Common Mistake</div>
+            <p>Only looking at your own brawler. <strong>Always look at what your teammates already counter.</strong> Don't pick a 3rd brawler that counters the same thing.</p>
+          </div>
+          <div class="ban-rule aggro">
+            <div class="ban-rule-title">If Teammate First Picks Space Maker (e.g. Mortis)</div>
+            <p>Don't panic. They will counter Mortis → <strong>you counter the counter.</strong> Force them to hard-commit → your last pick gets a free matchup.</p>
+          </div>
+          <div class="ban-rule passive">
+            <div class="ban-rule-title">Never Give Up</div>
+            <p>A bad first pick doesn't mean you auto-lose. Use your draft knowledge to <strong>save the game</strong> with smart picks 2-5.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- KEY RULES -->
+  <section class="section" id="rules">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Key Rules to Always Remember</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <span class="rule-num">1</span>
+        <div class="rule-text"><strong>Always have an anti-tank</strong> in aggressive modes — non-negotiable.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">2</span>
+        <div class="rule-text"><strong>Throwers and snipers are last pick</strong> in most scenarios.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">3</span>
+        <div class="rule-text"><strong>Never first pick control</strong> — easy to get run down by tanks and space makers.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">4</span>
+        <div class="rule-text"><strong>Space Maker + Anti-Tank combo</strong> wins almost every aggressive game.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">5</span>
+        <div class="rule-text"><strong>Tanks counter space makers</strong> when opponent has no anti-tank.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">6</span>
+        <div class="rule-text"><strong>Support needs damage dealers</strong> alongside them or you get run down.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">7</span>
+        <div class="rule-text"><strong>Meta changes constantly</strong> — follow pro tier lists after every balance update.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">8</span>
+        <div class="rule-text"><strong>New brawlers are always overtuned</strong> on release — prioritize banning/picking them.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUIZ -->
+  <section class="section" id="quiz">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Draft Quiz Answers</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="quiz-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Scenario</th>
+            <th>Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>First pick Ring of Fire</td><td class="correct-cell">Crow, Lou, Fins or best anti-tank</td></tr>
+          <tr><td>2</td><td>Last pick Shooting Star (RT + Belle vs Nani + Piper + B)</td><td class="correct-cell">Thrower</td></tr>
+          <tr><td>3</td><td>Second pick Sneaky Fields vs Crow first</td><td class="correct-cell">Next best anti-tank (Nidita, Otis, Chester)</td></tr>
+          <tr><td>4</td><td>Fifth pick Bell's Rock (Gene + Mele vs Jay + Bow)</td><td class="correct-cell">Space Maker — e.g. Olly</td></tr>
+          <tr><td>5</td><td>Second pick Hard Rock Mine vs Roughs first</td><td class="correct-cell">Lily, Bull, BB or best anti-tank</td></tr>
+          <tr><td>6</td><td>Last pick Haunt Zone (Draco + Stew vs Charlie + Lily + Pam)</td><td class="correct-cell">Poco, Barry or Frank</td></tr>
+          <tr><td>7</td><td>Second pick Hideout vs Pierce first</td><td class="correct-cell">Nani, Belle, Byron or Gus</td></tr>
+          <tr><td>8</td><td>Fifth pick Open Business (Chester + Nita vs BB + Mele)</td><td class="correct-cell">Bull, Kaz or Kenji</td></tr>
+          <tr><td>9</td><td>Fifth pick Hot Zone (Chester + Nidita vs Fins + Guju)</td><td class="correct-cell">Space Maker</td></tr>
+          <tr><td>10</td><td>Sixth pick Gold Arm (Gus + RT vs Angelo + Ally + Tick)</td><td class="correct-cell">Daryl or Bull</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Brawl Stars Draft Guide — Parts 1 & 2 · Based on Bobby's video guides · For educational use only
+</footer>
+
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 80;
+      if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
